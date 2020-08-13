@@ -8,9 +8,6 @@ import os
 
 app = Flask(__name__)
 
-#mul_reg = open("multiple_regression_model.pkl", "rb")
-#ml_model = joblib.load(mul_reg)
-
 
 @app.route("/")
 def home():
@@ -78,4 +75,4 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
