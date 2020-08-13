@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-#from sklearn.externals import joblib
 import pickle
 import numpy as np
 import os
@@ -63,8 +62,8 @@ def predict():
                       var9, var10, var11, var12, var13, var14, var15, var17, var19]
             pred_args_arr = np.array(varsxd)
             pred_args_arr = pred_args_arr.reshape(1, -1)
-            # mul_reg = open("multiple_regression_model.pkl", "rb")
-            # ml_model = joblib.load(mul_reg)
+            minmax = pickle.load(open("minmax.pkl", 'rb'))
+            pred_args_arr= minmax.transform(pred_args_arr)
             loaded_model = pickle.load(open("model.pkl", 'rb'))
             model_prediction = loaded_model.predict(pred_args_arr)
             print("prediction: " + str(model_prediction[0]))
