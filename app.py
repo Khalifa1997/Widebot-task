@@ -21,7 +21,7 @@ def home():
 def predict():
 
     if request.method == 'POST':
-        print(request.form.get('NewYork'))
+        
         try:
             var1 = request.form['var1']
             var4 = request.form['var4']
